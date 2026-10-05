@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Progin Service</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+
+<header class="header">
+    Group Management
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <h3>Sections</h3>
+        <a th:href="@{/groups}" class="menu-item active" th:text="Groups"></a>
+<!--        <a th:href="" class="menu-item-active" th:text="Employees"></a>-->
+
+    </aside>
+    <main class="content">
+        <h2>List of groups</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Group</th>
+                    <th>Location</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Teacher</th>
+                    <th></th>                    
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="group : ${groups}">
+                    <td th:text="${group.name}"></td>
+                    <td th:text="${group.location.getDisplayName()}"></td>
+                    <td th:text="${group.day.getDisplayName()}"></td>
+                    <td th:text="${group.time}"></td>
+                    <td>teacher</td>
+                    <td>
+                        <a th:href="@{/groups/{id}/edit(id=${group.id})}" th:text="Edit" class="edit-button"></a>
+                        <form th:action="@{/groups/{id}/delete(id=${group.id})}" th:method="DELETE" class="delete-form">
+                            <button type="submit" class="delete-button"> Delete </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            
+        </div>
+
+        <a th:href="@{/groups/new}" class="add-button"> + Добавить группу </a>
+
+    </main>
+
+</div>
+
+</body>
+</html>

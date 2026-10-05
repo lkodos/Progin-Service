@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>add group</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+
+<header class="header">
+    Group Management
+</header>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h3>Sections</h3>
+        <a th:href="@{/groups}" class="menu-item active" th:text="Back"></a>
+    </aside>
+
+    <main class="content">
+        <h2>Новая группа</h2>
+
+        <form th:method="POST" th:action="@{/groups}" th:object="${group}" class="group-form">
+
+            <div class="form-row">
+                <label for="groupName">Название:</label>
+                <input type="text" th:field="*{name}" id="groupName">
+
+                <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+            </div>
+
+
+            <div class="form-row">
+                <label for="location">Филиал:</label>
+                <select th:field="*{location}" id="location">
+                    <option value="">Выберите филиал</option>
+                    <option th:each="location : ${locations}"
+                            th:value="${location}"
+                            th:text="${location.getDisplayName()}">
+                    </option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+            </div>
+
+            <div class="form-row">
+                <label for="day">День:</label>
+                <select th:field="*{day}" id="day">
+                    <option value="">Выберите день</option>
+                    <option th:each="day : ${days}"
+                            th:value="${day}"
+                            th:text="${day.getDisplayName()}">
+                    </option>
+                </select>
+                <div class="error" th:if="${#fields.hasErrors('day')}" th:errors="*{day}"></div>
+            </div>
+
+            <div class="form-row">
+                <label for="time">Время:</label>
+                <input type="time"
+                       th:field="*{time}"
+                       id="time">
+                <div class="error" th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></div>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="button">
+                    Сохранить
+                </button>
+
+                <a th:href="@{/groups}" class="button cancel-button">
+                    Отмена
+                </a>
+            </div>
+
+        </form>
+    </main>
+
+
+
+</div>
+</body>
+</html>

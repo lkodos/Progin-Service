@@ -1,0 +1,71 @@
+.group-form {
+    width: 600px;
+    margin: 0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    text-align: right;
+    font-weight: bold;
+}
+
+.form-row input,
+.form-row select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: #888;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    margin-left: 165px;
+}
+
+.button {
+    display: inline-block;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+.cancel-button {
+    background-color: #999;
+}
+
+.cancel-button:hover {
+    background-color: #777;
+}
+
+.error {
+    grid-column: 2;
+    color: red;
+    font-size: 13px;
+    margin-top: -10px;
+}
