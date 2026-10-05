@@ -48,6 +48,7 @@ public class GroupController {
                          BindingResult bindingResult,
                          @PathVariable Integer id,
                          Model model) {
+        groupValidator.validate(group, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("locations", Location.values());
             model.addAttribute("days", Day.values());
