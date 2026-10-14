@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>ProginService</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Progin Service</h1>
+</header>
+
+<div class="main-container">
+
+    <aside class="sidebar">
+        <h3>Sections</h3>
+        <a th:href="@{/groups}" class="menu-item active">Groups</a>
+        <a th:href="@{/#}" class="menu-item">Teachers</a>
+        <a th:href="@{/#}" class="menu-item">Locations</a>
+    </aside>
+
+    <div class="content">
+        <h3>Group list</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Teacher</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td> name </td>
+                    <td> location </td>
+                    <td> day </td>
+                    <td> time </td>
+                    <td> teacher </td>
+                    <td><a href="#"> Edit </a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="#" class="add-button"> + New group</a>
+
+    </div>
+</div>
+
+</body>
+</html>
