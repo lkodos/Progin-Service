@@ -50,11 +50,11 @@ header {
 }
 
 .menu-item:hover {
-    background: #f8f9fa;
+    background: #eef1f4;
 }
 
 .menu-item.active {
-    background: #e9ecef;
+    background: #dee2e6;
     font-weight: bold;
 }
 
@@ -89,11 +89,11 @@ td a:hover {
 }
 
 th {
-    background: #e9ecef;
+    background: #dee2e6;
 }
 
 tr:hover {
-    background: #f8f9fa;
+    background: #eef1f4;
 }
 
 .add-button {
