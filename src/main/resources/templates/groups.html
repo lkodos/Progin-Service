@@ -35,12 +35,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td> name </td>
-                    <td> location </td>
-                    <td> day </td>
-                    <td> time </td>
-                    <td> teacher </td>
+                <tr th:each="group : ${groups}">
+                    <td th:text="${group.name}"></td>
+                    <td th:text="${group.location}"></td>
+                    <td th:text="${group.day}"></td>
+                    <td th:text="${group.time}"></td>
+                    <td th:text="${group.teacher.firstName + ' ' + group.teacher.patronymic}"></td>
                     <td><a href="#"> Edit </a> </td>
                 </tr>
                 </tbody>
