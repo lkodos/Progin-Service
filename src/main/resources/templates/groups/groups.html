@@ -16,8 +16,8 @@
     <aside class="sidebar">
         <h3>Sections</h3>
         <a th:href="@{/groups}" class="menu-item active">Groups</a>
-        <a th:href="@{/#}" class="menu-item">Teachers</a>
-        <a th:href="@{/#}" class="menu-item">Locations</a>
+        <a th:href="@{/static}" class="menu-item">Teachers</a>
+        <a th:href="@{/static}" class="menu-item">Locations</a>
     </aside>
 
     <div class="content">
@@ -47,7 +47,7 @@
             </table>
         </div>
 
-        <a href="#" class="add-button"> + New group</a>
+        <a th:href="@{/groups/new}" class="add-button"> + New group</a>
 
     </div>
 </div>

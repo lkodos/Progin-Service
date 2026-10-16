@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Progin-Service</title>
+    <link rel="stylesheet" th:href="@{/css/form.css}">
+</head>
+<body>
+
+<header>
+    <h1>Управление группами</h1>
+</header>
+
+<form th:method="POST" th:action="@{/groups}" th:object="${group}" class="form-container">
+
+    <div class="form-row">
+        <label for="groupName">Имя:</label>
+        <input type="text" th:field="*{name}" id="groupName">
+
+        <div class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    </div>
+
+    <div class="form-row">
+        <label for="location">Филиал:</label>
+        <select th:field="*{location}" id="location">
+            <option value="">Выберите филиал</option>
+            <option th:each="location : ${locations}"
+                    th:value="${location}"
+                    th:text="${location}">
+            </option>
+        </select>
+
+        <div class="error" th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+    </div>
+
+    <div class="form-row">
+        <label for="day">День:</label>
+        <select th:field="*{day}" id="day">
+            <option value="">Выберите день</option>
+            <option th:each="day : ${days}"
+                    th:value="${day}"
+                    th:text="${day}">
+            </option>
+        </select>
+
+        <div class="error" th:if="${#fields.hasErrors('day')}" th:errors="*{day}"></div>
+    </div>
+
+    <div class="form-row">
+        <label for="time">Время:</label>
+        <input type="time"
+               th:field="*{time}"
+               id="time">
+
+        <div class="error" th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></div>
+    </div>
+
+    <div class="button-container">
+        <button type="submit" class="button">
+            Save
+        </button>
+
+        <a th:href="@{/}" class="button cancel-button">
+            Cancel
+        </a>
+    </div>
+
+</form>
+
+</body>
+</html>
